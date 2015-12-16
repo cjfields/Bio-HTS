@@ -478,7 +478,9 @@ hts_read1(htsfile,header)
     bam1_t *alignment;
     CODE:
        alignment = bam_init1();
-       if (sam_read1(htsfile,header,alignment) >= 0) {
+       printf("rn6DEBUG:hts_read1:entered\n") ;
+       if (sam_read1(htsfile,header,alignment) >= 0)
+       {
          RETVAL = alignment ;
        }
        else
