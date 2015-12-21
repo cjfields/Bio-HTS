@@ -452,6 +452,10 @@ hts_header_read(htsfile)
       {
         result = bgzf_seek(htsfile->fp.bgzf,0,0) ;
       }
+      else if( htsfile->format.format == sam )
+      {
+        //TODO: It looks like some reset is required to re-read a SAM file header
+      }
       bh = sam_hdr_read(htsfile);
       RETVAL = bh ;
     OUTPUT:
