@@ -39,4 +39,10 @@ ok( @ha[0], "##fileformat=VCFv4.2" ) ;
 ok( @ha[5], "##reference=human_b36_both.fasta" ) ;
 $tbx->close;
 
+# Now try a remote file
+$test_file = 'ftp://ftp.ensembl.org/pub/variation_genotype/mus_musculus/mgp.v3.snps.sorted.rsIDdbSNPv137.vcf.gz';
+$tbx = Bio::DB::HTS::Tabix->new( filename => $test_file, warnings => 0 );
+
+$tbx->close;
+
 done_testing;
